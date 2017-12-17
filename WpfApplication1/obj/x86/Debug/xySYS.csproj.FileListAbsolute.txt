@@ -9,3 +9,5 @@ C:\Users\Administrator\Desktop\WpfApplication1\WpfApplication1\obj\x86\Debug\Wpf
 C:\Users\Administrator\Desktop\WpfApplication1\WpfApplication1\obj\x86\Debug\xySYS.csproj.GenerateResource.Cache
 C:\Users\Administrator\Desktop\WpfApplication1\WpfApplication1\obj\x86\Debug\WpfApplication1.exe
 C:\Users\Administrator\Desktop\WpfApplication1\WpfApplication1\obj\x86\Debug\WpfApplication1.pdb
+C:\Users\Administrator\Desktop\xySYS\WpfApplication1\obj\x86\Debug\WpfApplication1.exe
+C:\Users\Administrator\Desktop\xySYS\WpfApplication1\obj\x86\Debug\WpfApplication1.pdb

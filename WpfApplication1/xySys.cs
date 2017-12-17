@@ -10,7 +10,7 @@ using System.Windows.Controls;
 namespace WpfApplication1
 {
     /// <summary>
-    /// name:卢占辉
+    /// name:lzh
     /// description:坐标系类
     /// date:2017.12.16
     /// </summary>   
