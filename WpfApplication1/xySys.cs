@@ -93,8 +93,7 @@ namespace WpfApplication1
             myPath.StrokeThickness = 1;
             myPath.Data = myLineGeometry;
 
-            //把图像添加到待返回的临时canvas对象上
-            _Temp_Canvas.Children.Add(myPath);
+            _Temp_Canvas.Children.Add(myPath);//把图像添加到待返回的临时canvas对象上
         }  
 
         //画一个圆
@@ -109,8 +108,7 @@ namespace WpfApplication1
             myPath.StrokeThickness = 1;
             myPath.Data = myEllipseGeometry;
 
-            //把图像添加到待返回的临时canvas对象上
-            _Temp_Canvas.Children.Add(myPath);
+            _Temp_Canvas.Children.Add(myPath);//把图像添加到待返回的临时canvas对象上
         }
     }
 }
