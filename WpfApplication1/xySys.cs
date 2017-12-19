@@ -29,9 +29,8 @@ namespace WpfApplication1
         //隐藏xySys函数实现细节的函数
         private Canvas createSys_PRIVATE(int _WH_Canvas, int _NUM_CELL)
         {
-            //声明起点和终点对象并初始化XY坐标值
-            Point xy_start = new Point();
-            Point xy_end = new Point();
+            Point xy_start = new Point();//起点
+            Point xy_end = new Point();//终点
             xy_start.X = 0;
             xy_start.Y = 0;
             xy_end.X = 0;
@@ -60,6 +59,24 @@ namespace WpfApplication1
                     DrawLine(xy_start, xy_end);
                 }
             }
+            
+            double RADIUS = 0.5 * _WH_Canvas / _NUM_CELL;//半径
+
+            {
+                //给每个单元格都填充一个内切圆
+                for (int j = 0; j < _NUM_CELL;j++ )
+                {
+                    //绘制横向内切圆
+                    for (int i = 0; i < _NUM_CELL; i++)
+                    {
+                        Point CENTER_XY = new Point();//圆心
+                        CENTER_XY.X = 0.5 * (2 * i + 1) * _WH_Canvas / _NUM_CELL;
+                        CENTER_XY.Y = 0.5 *(2*j+1)* _WH_Canvas / _NUM_CELL;
+                        DrawCircle(CENTER_XY, RADIUS);
+                    }
+
+                }
+            }
 
             return _Temp_Canvas;
 
@@ -79,5 +96,21 @@ namespace WpfApplication1
             //把图像添加到待返回的临时canvas对象上
             _Temp_Canvas.Children.Add(myPath);
         }  
+
+        //画一个圆
+        private void DrawCircle(Point CENTER_XY, double RADIUS)
+        {
+            EllipseGeometry myEllipseGeometry = new EllipseGeometry();
+            myEllipseGeometry.Center = CENTER_XY;//设置圆心坐标
+            myEllipseGeometry.RadiusX = RADIUS;//设置X方向径长
+            myEllipseGeometry.RadiusY = RADIUS;//设置Y方向径长
+            Path myPath = new Path();
+            myPath.Stroke = Brushes.Black;
+            myPath.StrokeThickness = 1;
+            myPath.Data = myEllipseGeometry;
+
+            //把图像添加到待返回的临时canvas对象上
+            _Temp_Canvas.Children.Add(myPath);
+        }
     }
 }
