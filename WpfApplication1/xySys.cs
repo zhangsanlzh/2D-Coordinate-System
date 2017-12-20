@@ -21,14 +21,20 @@ namespace WpfApplication1
 
         //_WH_Canvas，显示各种图像的画布的边长
         //_NUM_CELL,单元格的个数（坐标系的阶数）
-        public Canvas createSys(int _WH_Canvas, int _NUM_CELL)
+        //_SYS_MODE,网格填充模式，默认为单元格完全填充，值为0；为1是内切圆填充；其它值无效
+        public Canvas createSys(int _WH_Canvas, int _NUM_CELL,int _SYS_MODE=0)
         {
-            return createSys_PRIVATE(_WH_Canvas, _NUM_CELL);
+            return createSys_PRIVATE(_WH_Canvas, _NUM_CELL, _SYS_MODE);
         }
 
         //隐藏xySys函数实现细节的函数
-        private Canvas createSys_PRIVATE(int _WH_Canvas, int _NUM_CELL)
+        private Canvas createSys_PRIVATE(int _WH_Canvas, int _NUM_CELL,int _SYS_MODE)
         {
+            //if (_SYS_MODE != 0 || _SYS_MODE != 1)
+            //{
+            //    throw new ArgumentException("填充模式_SYS_MODE参数不正确");
+            //}
+
             Point xy_start = new Point();//起点
             Point xy_end = new Point();//终点
             xy_start.X = 0;
@@ -60,6 +66,11 @@ namespace WpfApplication1
                 }
             }
             
+            if (_SYS_MODE==0)//如果填充模式是完全填充，则直接返回画布对象
+            {
+                return _Temp_Canvas;
+            }
+
             double RADIUS = 0.5 * _WH_Canvas / _NUM_CELL;//半径
 
             {
