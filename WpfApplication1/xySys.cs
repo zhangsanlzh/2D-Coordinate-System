@@ -16,9 +16,10 @@ namespace WpfApplication1
     /// </summary>   
     class xySys
     {
-        //待返回的临时canvas对象
-        Canvas _Temp_Canvas = new Canvas();
+        Canvas _Temp_Canvas = new Canvas();//待返回的临时canvas对象
         double RADIUS = 0.5 * MainWindow._WH_CANVAS/ MainWindow.NUM;//半径
+        bool isFill = false;//是否填充，默认false不填充。true填充
+
         //_WH_Canvas，显示各种图像的画布的边长
         //_NUM_CELL,单元格的个数（坐标系的阶数）
         //_SYS_MODE,网格填充模式，默认为单元格完全填充，值为0；为1是内切圆填充；其它值无效
@@ -27,14 +28,8 @@ namespace WpfApplication1
             return createSys_PRIVATE(_WH_Canvas, _NUM_CELL, _SYS_MODE);
         }
 
-        //隐藏xySys函数实现细节的函数
-        private Canvas createSys_PRIVATE(int _WH_Canvas, int _NUM_CELL,int _SYS_MODE)
+        private Canvas createSys_PRIVATE(int _WH_Canvas, int _NUM_CELL, int _SYS_MODE)//隐藏xySys函数实现细节的函数
         {
-            //if (_SYS_MODE != 0 || _SYS_MODE != 1)
-            //{
-            //    throw new ArgumentException("填充模式_SYS_MODE参数不正确");
-            //}
-
             Point xy_start = new Point();//起点
             Point xy_end = new Point();//终点
             xy_start.X = 0;
@@ -92,8 +87,7 @@ namespace WpfApplication1
 
         }
 
-        //画一条线
-        private void DrawLine(Point startPt, Point endPt)
+        private void DrawLine(Point startPt, Point endPt)//画一条线
         {
             //设置线型为虚线
             DoubleCollection dCollection = new DoubleCollection();
@@ -112,8 +106,6 @@ namespace WpfApplication1
             _Temp_Canvas.Children.Add(myPath);//把图像添加到待返回的临时canvas对象上
 
         }
-
-        bool isFill = false;//是否填充，默认false不填充。true填充
 
         private void DrawCircle(Point CENTER_XY, double RADIUS)//画一个圆
         {
@@ -171,7 +163,7 @@ namespace WpfApplication1
             int x = (int)location.X;
             int y = (int)location.Y;
 
-            if (x >=MainWindow.NUM||y>=MainWindow.NUM)//如果图像越界，则不描点
+            if (x >=MainWindow.NUM||y>=MainWindow.NUM||x<0||y<0)//如果图像越界，则不描点
             {
                 return _Temp_Canvas;
             }

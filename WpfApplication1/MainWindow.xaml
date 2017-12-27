@@ -13,5 +13,9 @@
         <TextBox Height="22" HorizontalAlignment="Left" Margin="280,80,0,0" Name="y_TxtBox" VerticalAlignment="Top" Width="44" />
         <Button Content="描点" Height="49" HorizontalAlignment="Left" VerticalContentAlignment="Center"  Margin="330,53,0,0" Name="drawDot" VerticalAlignment="Top" Width="29" Click="drawDot_Click" />
         <Button Content="清空文本框" Height="20" HorizontalAlignment="Left" Margin="264,109,0,0" Name="clearTxtBox" VerticalAlignment="Top" Width="95" Click="clearTxtBox_Click" />
+        <Button Content="←" Height="40" HorizontalAlignment="Left" Margin="47,344,0,0" Name="turn_left" VerticalAlignment="Top" Width="40" Click="turn_left_Click" />
+        <Button Content="→" Height="40" HorizontalAlignment="Left" Margin="138,345,0,0" Name="turn_right" VerticalAlignment="Top" Width="40" Click="turn_right_Click" />
+        <Button Content="↑" Height="40" HorizontalAlignment="Left" Margin="92,299,0,0" Name="turn_top" VerticalAlignment="Top" Width="40" Click="turn_top_Click" />
+        <Button Content="↓" Height="40" HorizontalAlignment="Left" Margin="92,345,0,0" Name="turn_bottom" VerticalAlignment="Top" Width="40" Click="turn_bottom_Click" />
     </Grid>
 </Window>

@@ -39,7 +39,7 @@ namespace WpfApplication1
             stackPanel_XySys.Children.Add(mySys);
         }
 
-        private void enlarge_Click(object sender, RoutedEventArgs e)
+        private void enlarge_Click(object sender, RoutedEventArgs e)//放大
         {
             NUM -= (int)(NUM * R);//最终单元格个数
 
@@ -65,7 +65,7 @@ namespace WpfApplication1
 
         }
 
-        private void shirink_Click(object sender, RoutedEventArgs e)
+        private void shirink_Click(object sender, RoutedEventArgs e)//缩小
         {
             NUM += (int)(NUM * R);//最终单元格个数
 
@@ -85,7 +85,7 @@ namespace WpfApplication1
 
         }
 
-        private void toggleMode_Click(object sender, RoutedEventArgs e)
+        private void toggleMode_Click(object sender, RoutedEventArgs e)//切换填充模式
         {
             {//将填充模式变量在0和1之间切换
                 SYSMODE++;
@@ -100,7 +100,7 @@ namespace WpfApplication1
            
         }
 
-        private void drawDot_Click(object sender, RoutedEventArgs e)
+        private void drawDot_Click(object sender, RoutedEventArgs e)//描点
         {
             if (x_TxtBox.Text == ""||y_TxtBox.Text=="")//文本框值为空则返回
             {
@@ -123,7 +123,7 @@ namespace WpfApplication1
             stackPanel_XySys.Children.Add(mySys);
         }
 
-        private void clearTxtBox_Click(object sender, RoutedEventArgs e)
+        private void clearTxtBox_Click(object sender, RoutedEventArgs e)//清空文本框和网格所有内容
         {
             x_TxtBox.Text = "";//清空x文本框
             y_TxtBox.Text = "";//清空y文本框
@@ -135,6 +135,69 @@ namespace WpfApplication1
             stackPanel_XySys.Children.Add(mySys);
         }
 
+        private void turn_top_Click(object sender, RoutedEventArgs e)//上移点
+        {
+            if (x_TxtBox.Text=="" || y_TxtBox.Text== "")//文本框空则移动函数无效
+            {
+                return;
+            }
+            //坐标系上描点
+            stackPanel_XySys.Children.Remove(mySys);
+            xySysCtrl sysCtrl = new xySysCtrl();
+            Canvas newCanvas = sysCtrl.turnSys(0, 1, 0, 0);
+            mySys = newCanvas;
+            stackPanel_XySys.Children.Add(mySys);
+
+            y_TxtBox.Text = (int.Parse(y_TxtBox.Text) -1).ToString();//改变当前y文本框的值
+        }
+
+        private void turn_left_Click(object sender, RoutedEventArgs e)//左移点
+        {
+            if (x_TxtBox.Text == "" || y_TxtBox.Text == "")//文本框空则移动函数无效
+            {
+                return;
+            }
+            //坐标系上描点
+            stackPanel_XySys.Children.Remove(mySys);
+            xySysCtrl sysCtrl = new xySysCtrl();
+            Canvas newCanvas = sysCtrl.turnSys(1, 0, 0, 0);
+            mySys = newCanvas;
+            stackPanel_XySys.Children.Add(mySys);
+
+            x_TxtBox.Text = (int.Parse(x_TxtBox.Text) - 1).ToString();//改变当前x文本框的值
+        }
+
+        private void turn_bottom_Click(object sender, RoutedEventArgs e)//下移点
+        {
+            if (x_TxtBox.Text == "" || y_TxtBox.Text == "")//文本框空则移动函数无效
+            {
+                return;
+            }
+            //坐标系上描点
+            stackPanel_XySys.Children.Remove(mySys);
+            xySysCtrl sysCtrl = new xySysCtrl();
+            Canvas newCanvas = sysCtrl.turnSys(0, 0, 0, 1);
+            mySys = newCanvas;
+            stackPanel_XySys.Children.Add(mySys);
+
+            y_TxtBox.Text = (int.Parse(y_TxtBox.Text) + 1).ToString();//改变当前y文本框的值
+        }
+
+        private void turn_right_Click(object sender, RoutedEventArgs e)//右移点
+        {
+            if (x_TxtBox.Text == "" || y_TxtBox.Text == "")//文本框空则移动函数无效
+            {
+                return;
+            }
+            //坐标系上描点
+            stackPanel_XySys.Children.Remove(mySys);
+            xySysCtrl sysCtrl = new xySysCtrl();
+            Canvas newCanvas = sysCtrl.turnSys(0, 0, 1, 0);
+            mySys = newCanvas;
+            stackPanel_XySys.Children.Add(mySys);
+
+            x_TxtBox.Text = (int.Parse(x_TxtBox.Text) + 1).ToString();//改变当前x文本框的值
+        }
                 
     }
 }
