@@ -2,5 +2,5 @@
 
 This is project developed  with C Sharp . It is like this ,
 
-![MyGif ](C:\Users\Administrator\Desktop\XY_SYS-TST-BC\images\MyGif .gif)
+![MyGif ](https://github.com/zhangsanlzh/2D-Coordinate-System/blob/master/images/MyGif%20.gif)
 
