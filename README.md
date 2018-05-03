@@ -1,7 +1,6 @@
-# xySYS
+# 2D Coordinate System
 
-这是个能生成n阶坐标系（网格）的项目。
+This is project developed  with C Sharp . It is like this ,
 
-这个项目用了WPF技术，C#编写。效果如下：
+![MyGif ](C:\Users\Administrator\Desktop\XY_SYS-TST-BC\images\MyGif .gif)
 
-![XY_SYS](C:\Users\Administrator\Desktop\xySYS\XY_SYS.gif)
